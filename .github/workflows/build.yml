@@ -29,14 +29,17 @@ jobs:
         timeout-minutes: 5
 
       - name: Run Linter and Formatter
-      - uses: cpp-linter/cpp-linter-action@v2
+        uses: cpp-linter/cpp-linter-action@v2
         id: linter
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           style: 'file'
           tidy-checks: ''
+          extensions: 'c,cpp,h,hpp'
           files-changed-only: false
+          database: 'build'
+          ignore: 'build'
       - name: Fail fast?
         if: steps.linter.outputs.checks-failed > 0
         run: |
