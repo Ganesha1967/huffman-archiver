@@ -37,7 +37,9 @@ jobs:
           style: 'file'
           tidy-checks: ''
           extensions: 'c,cpp,h,hpp'
-          files-changed-only: true
+          files-changed-only: false
+          database: 'build'
+          ignore: 'build'
       - name: Fail fast?
         if: steps.linter.outputs.checks-failed > 0
         run: |
