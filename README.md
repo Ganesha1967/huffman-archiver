@@ -1,1 +1,1 @@
-# huffman-archiver
+HUFFMAN-ARCHIVER
