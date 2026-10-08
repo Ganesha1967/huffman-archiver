@@ -1,15 +1,21 @@
-qt_add_executable(huffman-cli
+add_executable(huffman-cli
     main.c
+    cli_options.c
+)
+
+target_include_directories(huffman-cli PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 target_link_libraries(huffman-cli
     PRIVATE
         huffman-core
-        Qt::Core
+)
+
+set_target_properties(huffman-cli PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
 )
 
 install(TARGETS huffman-cli
-    BUNDLE  DESTINATION .
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
