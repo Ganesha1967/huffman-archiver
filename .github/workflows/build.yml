@@ -1,9 +1,13 @@
 name: Build
 
+#delete later, since nothing is building for now
 on:
-  push:
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+
+# on:
+#   push:
+#   pull_request:
+#     branches: [ main ]
 
 jobs:
   build:
